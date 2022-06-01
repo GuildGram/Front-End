@@ -29,7 +29,7 @@ export default function Guild() {
             "guildid": guildIdUpdate,
             "guildrole": guildRoleUpdate,
             }
-        const a = await axios.put(URLStart+charSvcPort+"/characters/updateguild"+charIdUpdate, char)
+        await axios.put(URLStart+charSvcPort+"/characters/updateguild"+charIdUpdate, char)
     }
 
     //variables for update guild
