@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-depl
+  name: frontend
 spec:
   replicas: 1
   selector:
@@ -16,8 +16,6 @@ spec:
       - name: application
         image: 425409/frontend:main
         imagePullPolicy: IfNotPresent
-        ports:
-          - containerPort: 3000
 ---
 
 apiVersion: v1
