@@ -1,0 +1,7 @@
+.home {
+    position: absolute;
+    height: calc(100% - 25px);
+    font-size: 20px !important;
+    align-items: center;
+    display: block;
+}
