@@ -3,22 +3,20 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import './guild.css'
 
-const charSvcPort = "9090"
-const guildSvcPort = "9091"
 const URLStart = "http://guildgram.com/"
 
 export default function Guild() {
     const getGuildData = async () => {
-        const res = await axios.get(URLStart+guildSvcPort+"/guilds/getall");
+        const res = await axios.get(URLStart+"/guilds/getall");
 
         setGuildData(res.data)
         console.log(res.data)
     }
     //add guildRosterData & populate roster data based on api call
     const getRosterData = async () => {
-        await axios.get(URLStart+charSvcPort+"/characters/msg"+guildId)
-        await axios.get(URLStart+guildSvcPort+"/guilds/addchars")
-        const res = await axios.get(URLStart+guildSvcPort+"/guilds/getroster"+guildId)
+        await axios.get(URLStart+"/characters/msg"+guildId)
+        await axios.get(URLStart+"/guilds/addchars")
+        const res = await axios.get(URLStart+"/guilds/getroster"+guildId)
 
         setGuildRoster(res.data)
         console.log(res.data)
@@ -29,7 +27,7 @@ export default function Guild() {
             "guildid": guildIdUpdate,
             "guildrole": guildRoleUpdate,
             }
-        await axios.put(URLStart+charSvcPort+"/characters/updateguild"+charIdUpdate, char)
+        await axios.put(URLStart+"/characters/updateguild"+charIdUpdate, char)
     }
 
     //variables for update guild
