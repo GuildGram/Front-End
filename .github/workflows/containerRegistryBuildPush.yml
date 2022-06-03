@@ -5,7 +5,7 @@ name: CI
 on:
   # Triggers the workflow on push events but only for the master branch
   push:
-    branches: [ master ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -15,7 +15,7 @@ on:
         required: true
 #2
 env:
-  REGISTRY: "registry.digitalocean.com/guildgramcr/frontend-svc:latest"
+  REGISTRY: "registry.digitalocean.com/guildgramcrregistry.digitalocean.com/guildgramcr"
   IMAGE_NAME: "frontend-svc"
 
 #3
