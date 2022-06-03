@@ -5,7 +5,7 @@ import './guild.css'
 
 const charSvcPort = "9090"
 const guildSvcPort = "9091"
-const URLStart = "http://localhost:"
+const URLStart = "http://guildgram.com/"
 
 export default function Guild() {
     const getGuildData = async () => {

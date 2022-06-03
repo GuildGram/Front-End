@@ -5,7 +5,7 @@ import './home.css'
 import { useKeycloak } from "@react-keycloak/web";
 
 const charSvcPort = "9090"
-const URLStart = "http://localhost:"+charSvcPort;
+const URLStart = "http://guildgram.com/"+charSvcPort;
 
 export default function Home() {
     const { keycloak } = useKeycloak();
