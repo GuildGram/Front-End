@@ -1,21 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: frontend
+      app: frontend
   template:
     metadata:
       labels:
-        name: frontend
+        app: frontend
     spec:
       containers:
-      - name: application
+      - name: frontend
         image: 425409/frontend:main
-        imagePullPolicy: IfNotPresent
 ---
 
 apiVersion: v1

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Routes, Route, BrowserRouter} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
@@ -13,17 +13,19 @@ import PrivateRoute from './components/helpers/PrivateRoute';
 export default function App() {
   return (
     <ReactKeycloakProvider authClient={keycloak}>
-      <BrowserRouter>
+    <Router>
+      <div>
         <Navbar />
-          <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/guild' element={
-              <PrivateRoute>
-                <Guild/>
-              </PrivateRoute>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/guild' element={
+            <PrivateRoute>
+              <Guild/>
+            </PrivateRoute>
               }/>
-          </Routes>
-        </BrowserRouter>
-    </ReactKeycloakProvider>
-);
+        </Routes>
+      </div>
+    </Router>
+  </ReactKeycloakProvider>
+  );
 }
