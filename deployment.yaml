@@ -14,9 +14,9 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: registry.digitalocean.com/guildgramcr/frontend-svc
+        image: registry.digitalocean.com/guildgramcr/frontend-svc:latest 
       imagePullSecrets:
-      - name: registry-guildgramcr
+      - name: guildgramcr
 ---
 
 apiVersion: v1
