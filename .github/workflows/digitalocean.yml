@@ -1,12 +1,8 @@
 on:
   push:
-    branches:
-      - main
-    paths:
-      - 'config/**'
-      - 'site/**'
-      - 'Dockerfile'
-      - '.github/workflows/**'
+    branches: [ main, development ]
+  pull_request:
+    branches: [ main, development ]
 
 jobs:
 
