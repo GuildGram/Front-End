@@ -1,16 +1,16 @@
 import React from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom'
-import { useKeycloak } from "@react-keycloak/web";
+// import { useKeycloak } from "@react-keycloak/web";
 
 
 export default function Navbar() {
-  const { keycloak } = useKeycloak();
+  // const { keycloak } = useKeycloak();
   return (
     <div className='navbar'>navbar
         <Link to="/">Home</Link>
         <Link to="/guild">Guilds</Link>
-        <div className='navbar'>
+        {/* <div className='navbar'>
           {!keycloak.authenticated && (
           <button
             type="button"
@@ -30,7 +30,7 @@ export default function Navbar() {
           </button>
           )}
           {console.log(keycloak.subject)}
-        </div>
+        </div> */}
     </div>
   )
 }

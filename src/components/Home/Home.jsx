@@ -2,12 +2,12 @@ import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow
 import axios from 'axios';
 import React, { useState } from 'react'
 import './home.css'
-import { useKeycloak } from "@react-keycloak/web";
+// import { useKeycloak } from "@react-keycloak/web";
 
 const URLStart = "http://guildgram.com/";
 
 export default function Home() {
-    const { keycloak } = useKeycloak();
+    // const { keycloak } = useKeycloak();
     //populate data
     const getCharData = async () => {
         const res = await axios.get(URLStart+"/characters/getall");
@@ -21,19 +21,18 @@ export default function Home() {
     }
 
     const addChar = async () => {
-        var char = {
-        "userid": keycloak.subject,
-        "class": charClass,
-        "name": charName,
-        "regionserver": charRegion,
-        "characterlevel": charLevel,
-        "rosterlevel": charRoster,
-        "ilvl":charIlvl,
-        }
-
-        await axios.post(URLStart+"/characters/add",char)
+        await axios.post(URLStart+"characters/add",{
+            "userid": charID,
+            "class": charClass,
+            "name": charName,
+            "regionserver": charRegion,
+            "characterlevel": charLevel,
+            "rosterlevel": charRoster,
+            "ilvl":charIlvl,
+            })
     }
     //variables for add character
+    const [charID, setCharID] = useState();
     const [charClass, setcharClass] = useState();
     const [charName, setcharName] = useState();
     const [charRegion, setcharRegion] = useState();
@@ -68,7 +67,7 @@ export default function Home() {
                         <TableBody>
                             {charData.map((row) => (
                                 <TableRow
-                                    key={row.name}
+                                    key={row.userid}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
@@ -109,6 +108,13 @@ export default function Home() {
 
             <div>
                 <form>
+                <label>Character ID
+                        <input
+                        type="string"
+                        value={charID}
+                        onChange={(e) => setCharID(e.target.value)}
+                        />
+                    </label>
                     <label>Character Class
                         <input
                         type="string"
