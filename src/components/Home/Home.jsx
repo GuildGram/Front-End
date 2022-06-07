@@ -104,8 +104,6 @@ export default function Home() {
             <div className='btnContainer'>
                     <button onClick={deleteChar}>Delete Character</button>
             </div>
-            
-
             <div>
                 <form>
                 <label>Character ID
@@ -159,11 +157,9 @@ export default function Home() {
                     </label>
                 </form>
             </div>
-
             <div className='btnContainer'>
                 <button onClick={addChar}>Add Character</button>
             </div>
-            <label>TESING FOR DEPLOYMENT PLS SEE ME HOSTED</label>
         </div>
     )
 }

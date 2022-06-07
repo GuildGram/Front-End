@@ -15,7 +15,6 @@ spec:
       containers:
       - name: frontend
         image: <IMAGE> 
-        #registry.digitalocean.com/guildgramcr/frontend:latest
       imagePullSecrets:
       - name: guildgramcr
 ---
