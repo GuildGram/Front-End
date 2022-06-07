@@ -10,15 +10,13 @@ on:
     branches: [ main, development ]
 
 jobs:
+#job 1 - test if builds correctly
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [14.x, 16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -29,6 +27,7 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
 
+#job 2 - build and push to dockerhub
   docker_build_push:
       name: Publish Docker Image
       if: ${{ github.event_name == 'push' }}
