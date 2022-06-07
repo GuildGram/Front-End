@@ -22,7 +22,7 @@ jobs:
       run: echo $GITHUB_SHA
 
     - name: Build container image
-      run: docker build -t registry.digitalocean.com/asb/static-example:$(echo $GITHUB_SHA | head -c7) .
+      run: docker build -t registry.digitalocean.com/guildgramcr/frontend:$(echo $GITHUB_SHA | head -c7) .
 
     - name: Install doctl
       uses: digitalocean/action-doctl@v2
