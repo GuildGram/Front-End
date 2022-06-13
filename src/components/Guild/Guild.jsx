@@ -15,7 +15,7 @@ export default function Guild() {
     //add guildRosterData & populate roster data based on api call
     const getRosterData = async () => {
         await axios.get(URLStart+"/characters/msg"+guildId)
-        await axios.get(URLStart+"/guilds/addchars")
+       
         const res = await axios.get(URLStart+"/guilds/getroster"+guildId)
 
         setGuildRoster(res.data)
