@@ -15,12 +15,28 @@ export default function Guild() {
     //add guildRosterData & populate roster data based on api call
     const getRosterData = async () => {
         await axios.get(URLStart+"/characters/msg"+guildId)
-       
+        // await axios.get(URLStart+"/guilds/addchars")
+        // const res = await axios.get(URLStart+"/guilds/getroster"+guildId)
+
+        // setGuildRoster(res.data)
+        // console.log(res.data)
+    } 
+    const consumeRosterData = async () => {
+        //await axios.get(URLStart+"/characters/msg"+guildId)
+         await axios.get(URLStart+"/guilds/addchars")
+        // const res = await axios.get(URLStart+"/guilds/getroster"+guildId)
+
+        // setGuildRoster(res.data)
+        // console.log(res.data)
+    } 
+    const viewRosterData = async () => {
+        // await axios.get(URLStart+"/characters/msg"+guildId)
+        // await axios.get(URLStart+"/guilds/addchars")
         const res = await axios.get(URLStart+"/guilds/getroster"+guildId)
 
         setGuildRoster(res.data)
         console.log(res.data)
-    }   
+    } 
     //add character to guild roster
     const updateCharGuildInfo = async () => {
         var char = {
@@ -118,7 +134,13 @@ export default function Guild() {
             : "No data"}
 
         <div className='btnContainer'>
-            <button onClick={getRosterData}>Populate Roster</button>
+            <button onClick={getRosterData}>Place message in rabbitmq</button>
+        </div>
+        <div className='btnContainer'>
+            <button onClick={consumeRosterData}>Consume message</button>
+        </div>
+        <div className='btnContainer'>
+            <button onClick={viewRosterData}>Display roster</button>
         </div>
             <div className='btnContainer'>
                 <form>

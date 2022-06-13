@@ -14,9 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: <IMAGE> 
-      imagePullSecrets:
-      - name: guildgramcr
+        image: 425409/frontend:development
 ---
 
 apiVersion: v1
